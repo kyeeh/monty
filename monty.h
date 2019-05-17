@@ -43,7 +43,7 @@ typedef struct instruction_s
  * @line: string for Monty bytecode lines.
  * @stack: required for operations.
  * @tokens: operation and values extracted from lines.
- * 
+ * @line_number: current line.
  * Description: memory struct for working values
  */
 typedef struct working_values
@@ -55,6 +55,7 @@ typedef struct working_values
 } working_values_t;
 
 extern working_values_t wv;
+working_values_t wv;
 
 /* Error Messages */
 #define BAD_ARGV "USAGE: monty file\n"
@@ -64,6 +65,7 @@ extern working_values_t wv;
 void close_file(FILE *monty_bytecode);
 int parse_file(FILE *monty_bytecode);
 void get_tokens(void);
+void operator(void);
 
 
 #endif  /* MONTY_H_ */

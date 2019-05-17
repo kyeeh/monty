@@ -1,6 +1,6 @@
 #include "monty.h"
-/*working_values_t *wv;*/
-working_values_t wv;
+
+
 /**
  * parse_file - Parses Monty bytecode file.
  * @monty_bytecode: monty_bytecode.
@@ -8,17 +8,17 @@ working_values_t wv;
  */
 
 int parse_file(FILE *monty_bytecode)
-{/*
+{
 	size_t size;
 	int char_amount;
 
-	char_amount = getline(&(wv->line), &size, monty_bytecode);
+	char_amount = getline(&(wv.line), &size, monty_bytecode);
 	while (char_amount > 0)
 	{
-		wv->line_number++;
+		wv.line_number++;
 		get_tokens();
-		exce_op();
-	} */
+		operator();
+	}
 	close_file(monty_bytecode);
 	return (58);
 }
@@ -39,22 +39,22 @@ void close_file(FILE *monty_bytecode)
  * Return: array of string or NULL.
  */
 
-/*
+
 void get_tokens(void)
 {
 	int i = 0, size;
-	char *token, *dest;
+	char *token, *new_str;
 
-
-	token = strtok(wv->line, " \t\n");
+	wv.tokens = &new_str;
+	token = strtok(wv.line, " \t\n");
 	while (token)
 	{
+		new_str = malloc(sizeof(char *));
 		size = strlen(token);
-		wv->tokens[i] = malloc(sizeof(char *));
+		wv.tokens[i] = 
 		dest = malloc(sizeof(char) * size);
 		strcpy(dest, token);
-		wv->tokens[i] = dest;
+		wv.tokens[i] = dest;
 		token = strtok (NULL, " ,.-");
 	}
 }
-*/

@@ -5,12 +5,11 @@
  * @monty_bytecode: monty_bytecode.
  */
 
-/*
+
 void operator(void)
 {
 	int i;
-	stack_t *stack;
-	instruction_t operations[] = {
+	instruction_t operations[] = {/*
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
@@ -20,16 +19,15 @@ void operator(void)
 		{"add", _add},
 		{"sub", _sub},
 		{"div", _div},
-		{"mul", _mul},
+		{"mul", _mul},*/
 		{NULL, NULL}
 	};
 
 	for (i = 0; operations[i].opcode; i++)
 	{
-		if (operations[i].opcode == *token)
+		if (operations[i].opcode == wv.tokens[0])
 		{
-			operations[i].f(stack, tokens);
+			operations[i].f(&(wv.stack), wv.line_number);
 		}
 	}
 }
-*/

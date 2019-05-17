@@ -1,2 +1,5 @@
 b main:12
-b parser.c:20
+b parser.c:48
+
+
+pch = strtok (str," ,.-");
