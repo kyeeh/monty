@@ -1,26 +1,29 @@
 #include "monty.h"
 /**
- * main -  Start Monty file interpreter.
+ * main - Start Monty file interpreter.
  * @argc: argument counter.
  * @argv: argument vector.
- * Return: 0 on failure, 1 on success.
+ * Return: EXIT_FAILURE on failure, EXIT_SUCCESS on success.
  */
 int main(int argc, char **argv)
 {
-	FILE *input_file;
+	FILE *monty_bytecode;
+	/* working_values_t *wv = malloc(sizeof(working_values_t *)); */
+	working_values_t wv = {NULL, NULL, NULL, 1};
 
-	if (argc == 2)
-	{
-		input_file = fopen(argv[1], "r");
-		if (input_file)
-		{
-			/* parse file */
-		}
-	}
+	(void)wv;
+	(void)argc;
+	/* if (argc == 2)
+	{*/
+		monty_bytecode = fopen(argv[1], "r");
+		if (parse_file(monty_bytecode))
+			return (EXIT_SUCCESS);
+		else
+			dprintf(STDERR_FILENO, BAD_FILE, argv[1]);
+	/*}
 	else
-	{
 		dprintf(STDERR_FILENO, BAD_ARGV);
-		return (0);
-	}
-	return (1);
+	close_file(monty_bytecode);
+	*/
+	return (EXIT_FAILURE);
 }
